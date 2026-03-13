@@ -1,0 +1,328 @@
+/* ===== Student Budget Tracker - Custom Styles ===== */
+
+/* ===== Theme Variables ===== */
+:root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --ring: 240 5% 64.9%;
+    --progress-track: 240 5.9% 90%;
+    --hover-card: 240 4.8% 92%;
+    --scrollbar: 240 5.9% 90%;
+    --btn-primary-bg: 240 5.9% 10%;
+    --btn-primary-fg: 0 0% 98%;
+    --btn-primary-hover: 240 5.9% 20%;
+    --placeholder: 240 5% 55%;
+    --shadow-opacity: 0.1;
+}
+
+.dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --ring: 240 4.9% 83.9%;
+    --progress-track: 240 3.7% 15.9%;
+    --hover-card: 240 3.7% 10%;
+    --scrollbar: 240 3.7% 15.9%;
+    --btn-primary-bg: 0 0% 98%;
+    --btn-primary-fg: 240 10% 3.9%;
+    --btn-primary-hover: 0 0% 90%;
+    --placeholder: 240 5% 45%;
+    --shadow-opacity: 0.3;
+}
+
+/* Smooth transitions for interactive elements */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--scrollbar)) transparent;
+}
+
+/* shadcn-style card component */
+.card {
+    border-radius: 0.75rem;
+    border: 1px solid hsl(var(--border));
+    background-color: hsl(var(--card));
+    padding: 1.5rem;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.card:hover {
+    border-color: hsl(var(--muted-foreground) / 0.3);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.card-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: hsl(var(--muted-foreground));
+    letter-spacing: 0.025em;
+}
+
+.card-value {
+    font-size: 1.875rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+}
+
+/* Progress bar */
+.progress-track {
+    width: 100%;
+    height: 0.5rem;
+    background-color: hsl(var(--progress-track));
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 9999px;
+    transition: width 0.5s ease;
+}
+
+.progress-fill.safe {
+    background-color: hsl(142 76% 36%);
+}
+
+.progress-fill.warning {
+    background-color: hsl(38 92% 50%);
+}
+
+.progress-fill.danger {
+    background-color: hsl(0 84% 60%);
+}
+
+/* Category color dots */
+.cat-dot {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+}
+
+.cat-dot.orange { background-color: hsl(25 95% 53%); }
+.cat-dot.blue   { background-color: hsl(217 91% 60%); }
+.cat-dot.purple { background-color: hsl(263 70% 50%); }
+.cat-dot.green  { background-color: hsl(142 71% 45%); }
+.cat-dot.indigo { background-color: hsl(239 84% 67%); }
+.cat-dot.red    { background-color: hsl(0 84% 60%); }
+.cat-dot.teal   { background-color: hsl(168 76% 42%); }
+.cat-dot.cyan   { background-color: hsl(189 94% 43%); }
+.cat-dot.amber  { background-color: hsl(38 92% 50%); }
+.cat-dot.slate  { background-color: hsl(215 20% 65%); }
+
+/* shadcn-style form inputs */
+.input {
+    display: block;
+    width: 100%;
+    border-radius: 0.375rem;
+    border: 1px solid hsl(var(--input));
+    background-color: hsl(var(--background));
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    color: hsl(var(--foreground));
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.2s ease;
+}
+
+.input:focus {
+    border-color: hsl(var(--ring));
+    box-shadow: 0 0 0 2px hsl(var(--ring) / 0.15);
+}
+
+.input::placeholder {
+    color: hsl(var(--placeholder));
+}
+
+/* shadcn-style button */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease, opacity 0.15s ease, color 0.15s ease;
+    border: none;
+    outline: none;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background-color: hsl(var(--btn-primary-bg));
+    color: hsl(var(--btn-primary-fg));
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: hsl(var(--btn-primary-hover));
+}
+
+.btn-ghost {
+    background-color: transparent;
+    color: hsl(var(--muted-foreground));
+}
+
+.btn-ghost:hover:not(:disabled) {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--foreground));
+}
+
+.btn-destructive {
+    background-color: hsl(var(--destructive));
+    color: hsl(0 0% 98%);
+}
+
+.btn-destructive:hover:not(:disabled) {
+    background-color: hsl(var(--destructive) / 0.8);
+}
+
+/* Toast notification */
+.toast {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.375rem;
+    border: 1px solid hsl(var(--border));
+    background-color: hsl(var(--card));
+    color: hsl(var(--foreground));
+    font-size: 0.875rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, var(--shadow-opacity));
+    transform: translateY(120%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 100;
+}
+
+.toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.toast.success {
+    border-color: hsl(142 76% 36%);
+}
+
+.toast.error {
+    border-color: hsl(0 84% 60%);
+}
+
+/* Table styles */
+.expense-row {
+    transition: background-color 0.15s ease;
+}
+
+.expense-row:hover {
+    background-color: hsl(var(--hover-card));
+}
+
+/* Pie chart slice animation */
+.pie-slice {
+    transition: opacity 0.2s ease;
+}
+
+.pie-slice:hover {
+    opacity: 0.75;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+/* Label style */
+.label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.375rem;
+    display: block;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    color: hsl(var(--muted-foreground));
+    transition: color 0.2s ease, background-color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    color: hsl(var(--foreground));
+    background-color: hsl(var(--accent));
+}
+
+/* Hide/show sun/moon icons based on theme */
+.dark .theme-toggle .icon-sun { display: block; }
+.dark .theme-toggle .icon-moon { display: none; }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+
+/* Smooth theme transition */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease !important;
+    transition-delay: 0s !important;
+}
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 640px) {
+    .card {
+        padding: 1rem;
+    }
+
+    .card-value {
+        font-size: 1.5rem;
+    }
+
+    .overflow-x-auto {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Ensure tables don't squish */
+    .overflow-x-auto table {
+        min-width: 500px;
+    }
+}
